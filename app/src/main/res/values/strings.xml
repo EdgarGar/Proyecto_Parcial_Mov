@@ -1,0 +1,44 @@
+<resources>
+    <!--App Name-->
+    <string name="app_name">Catalogue</string>
+
+    <!--Login Activity Strings-->
+    <string name="login_button_text">Log in</string>
+    <string name="password_text_hint">Password</string>
+    <string name="user_text_hint">Username</string>
+    <string name="audio">Audio</string>
+    <string name="tv">TV</string>
+    <string name="instrument">Instruments</string>
+
+    <!--Administrator Main Activity Strings-->
+    <string name="name_employee_hint_textbox">Name</string>
+    <string name="lastname_employee_hint_textbox">Last Name</string>
+    <string name="phone_employee_hint_textbox">Phone</string>
+    <string name="mail_employee_hint_textbox">E-mail</string>
+    <string name="password_employee_hint_textbox">Password</string>
+    <string name="username_employee_hint_textbox">Username</string>
+    <string name="role_employee_hint_textbox">Role</string>
+    <string name="add_employee_button">Add Employee</string>
+    <string name="nextIntent_button">List of Users</string>
+
+    <!--Info Employe-->
+    <string name="employee_id">id</string>
+    <string name="employe_name">name</string>
+    <string name="employe_lastname">last name</string>
+    <string name="employe_user">user</string>
+    <string name="employe_rol">rol</string>
+    <string name="employe_passsword">password</string>
+    <string name="employe_phone">phone</string>
+    <string name="employe_mail">mail</string>
+    <string name="employe_salary">salary</string>
+    
+    
+    <!--Info Product-->
+    <string name="id_product">id</string>
+    <string name="name_product">name product</string>
+    <string name="image_product">image product</string>
+    <string name="stock_product">stock</string>
+    <string name="price_product">price</string>
+    <string name="categories_product">categories</string>
+
+</resources>
