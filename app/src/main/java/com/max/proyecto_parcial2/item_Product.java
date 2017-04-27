@@ -1,14 +1,13 @@
 package com.max.proyecto_parcial2;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +32,7 @@ import java.net.URL;
 
 public class item_Product extends AppCompatActivity {
     private TextView t_name, t_price, t_subtotal, t_quantity, t_image;
+    private EditText p_id, p_name, p_image, p_stock, p_price, p_category;
     private String jsonSubtotal, jsonQuantity;
     private String value = "";
     private Button btn_increment, btn_decrement, btn_send;
@@ -169,17 +169,7 @@ public class item_Product extends AppCompatActivity {
         }
     }
 
-    public void onClick(View v) {
-        Uri uri = Uri.parse("http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/producto.c.php");
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
-    }
-
     public void send(){
-
-    }
-
-
 
         //////////////////////////////TO DO/////////////////////////////////
         //--crear pedido con servicio pedido.c.php
@@ -193,9 +183,27 @@ public class item_Product extends AppCompatActivity {
         //--Mejorar Servicios php
         ////////////////////////////////////////////////////////////////////
 
+        Bundle myIntent = getIntent().getExtras();
+
+        if(myIntent != null) {value = myIntent.getString("idProduct");}
+
+
+        p_id = (EditText) findViewById(R.id.id);
+        p_name = (EditText) findViewById(R.id.product_name);
+        p_image = (EditText) findViewById(R.id.product_image);
+        p_stock = (EditText) findViewById(R.id.product_stock);
+        p_price = (EditText) findViewById(R.id.product_price);
+        p_category = (EditText) findViewById(R.id.product_category);
+
+
+
+    }
+
+
+
         /////////////////////////////BONUS//////////////////////////////////
         //--Dividir productos por categorias en los fragmentos.
-        // --Administrador pueda modificar Empleado.
+        //--Administrador pueda modificar Empleado.
         //--Encriptar carpeta de proyecto.
         //--Agregar funcion getParams() al login.
         //--Administrador pueda ver clientes, y pueda añadir/modificar clientes.

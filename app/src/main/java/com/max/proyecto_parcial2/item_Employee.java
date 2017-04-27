@@ -80,7 +80,5 @@ public class item_Employee extends AppCompatActivity {
         //--Desplegar foto de Empleado. Vease como se hizo en item_Product.java con Bitmap.
         //--Boton de regresar a Pantalla anterior.
         ////////////////////////////////////////////
-
-
     }
 }
