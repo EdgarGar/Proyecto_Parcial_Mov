@@ -25,7 +25,14 @@
         <activity android:name=".Cardview_products" />
         <activity android:name=".item_Product" />
         <activity android:name=".List_employee" />
-        <activity android:name=".item_Employee"></activity>
+        <activity
+            android:name=".item_Employee"
+            android:label="Employee Info"
+            android:parentActivityName=".MainActivity_Employee">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity_Employee"/>
+        </activity>
     </application>
 
 </manifest>
