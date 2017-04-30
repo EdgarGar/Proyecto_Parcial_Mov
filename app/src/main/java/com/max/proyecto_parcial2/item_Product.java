@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -169,7 +170,65 @@ public class item_Product extends AppCompatActivity {
         }
     }
 
-    public void send(){
+    public void send() {
+        //--crear pedido con servicio pedido.c.php
+        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/pedidos.c.php" +
+                "?id_empleado=" + t_name.getText() +
+                "&id_cliente=" + t_price.getText() +
+                "&p_fecha=" + t_quantity.getText() +
+                "&p_status=" + t_subtotal.getText();
+
+        JsonArrayRequest creaPedido = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    JSONObject object = (JSONObject) response.get(0);
+
+                    if (object.getString("Code") == "01") {
+                        //--crear pedido_producto con counter como cantidad de producto,
+                        for (int i = 0; i < counter; i++) {
+                            String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/productos_pedidos .c.php" +
+                                    "?id_pedido";
+
+                            JsonArrayRequest jsonrequest = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
+                                @Override
+                                public void onResponse(JSONArray response) {
+                                    try {
+                                        JSONObject object = (JSONObject) response.get(0);
+
+                                        if (object.getString("Code") == "01") {
+
+
+
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    VolleyLog.d("ERROR VOLLEY", "Error: " + error.getMessage());
+                                    Toast.makeText(getApplicationContext(),
+                                            error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("ERROR VOLLEY", "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //////////////////////////////TO DO/////////////////////////////////
         //--crear pedido con servicio pedido.c.php
