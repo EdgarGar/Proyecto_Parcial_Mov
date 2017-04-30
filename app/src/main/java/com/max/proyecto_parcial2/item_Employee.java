@@ -57,7 +57,7 @@ public class item_Employee extends AppCompatActivity {
         payment = (TextView) findViewById(R.id.payment);
         image = (ImageView) findViewById(R.id.profile);
 
-        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/empleado.r.php?id=" + value;
+        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/empleado.r.php?id_empleado=" + value;
 
         JsonArrayRequest jsonrequest = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
             @Override
