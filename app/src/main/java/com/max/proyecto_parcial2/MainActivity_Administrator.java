@@ -68,6 +68,35 @@ public class MainActivity_Administrator extends AppCompatActivity {
 
     public void insert_user(){
 
+        if(name_employee.getText().length() == 0){
+            Toast.makeText(getApplicationContext(), "Field not set", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(lastname_employee.getText().length() == 0){
+            Toast.makeText(getApplicationContext(), "Field not set", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(phone_employee.getText().length() == 0){
+            Toast.makeText(getApplicationContext(), "Field not set", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(email_employee.getText().length() == 0){
+            Toast.makeText(getApplicationContext(), "Field not set", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(password_employee.getText().length() == 0){
+            Toast.makeText(getApplicationContext(), "Field not set", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(username_employee.getText().length() == 0){
+            Toast.makeText(getApplicationContext(), "Field not set", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(role_employee.getText().length() == 0){
+            Toast.makeText(getApplicationContext(), "Field not set", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         url += "?nombre=" + name_employee.getText().toString() + "&apellido=" + lastname_employee.getText().toString() + "&telefono=" + phone_employee.getText().toString() + "&mail=" + email_employee.getText().toString() + "&password=" + password_employee.getText().toString() + "&username=" + username_employee.getText().toString() + "&role=" + role_employee.getText().toString();
 
 
