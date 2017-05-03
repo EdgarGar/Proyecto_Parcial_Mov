@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -35,21 +37,23 @@ public class item_Product extends AppCompatActivity {
     private TextView t_name, t_price, t_subtotal, t_quantity, t_image;
     private EditText p_id, p_name, p_image, p_stock, p_price, p_category;
     private String jsonSubtotal, jsonQuantity;
-    private String value = "";
+    private String value = "", orderID = "";
     private Button btn_increment, btn_decrement, btn_send;
     private int counter = 0;
     private ImageView imageView;
-
+    RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_product);
+        queue = Volley.newRequestQueue(getApplicationContext());
 
         Bundle myIntent = getIntent().getExtras();
 
-        if(myIntent != null) {value = myIntent.getString("idProduct");}
-
+        if(myIntent != null) {
+            value = myIntent.getString("idProduct");
+        }
 
         t_name = (TextView) findViewById(R.id.ProductName);
         t_price = (TextView) findViewById(R.id.ProductPrice);
@@ -119,9 +123,6 @@ public class item_Product extends AppCompatActivity {
                         error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(jsonrequest);
 
     }
@@ -173,62 +174,45 @@ public class item_Product extends AppCompatActivity {
     public void send() {
         //--crear pedido con servicio pedido.c.php
         String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/pedidos.c.php" +
-                "?id_empleado=" + t_name.getText() +
-                "&id_cliente=" + t_price.getText() +
-                "&p_fecha=" + t_quantity.getText() +
-                "&p_status=" + t_subtotal.getText();
+                "?ide=" + UserVariables.getInstance().getEmployeeID() +
+                "&idc=" + UserVariables.getInstance().getClientID() +
+                "&status=1";
+        Log.d("Request 1", url);
 
-        JsonArrayRequest creaPedido = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                try {
-                    JSONObject object = (JSONObject) response.get(0);
-
-                    if (object.getString("Code") == "01") {
-                        //--crear pedido_producto con counter como cantidad de producto,
-                        for (int i = 0; i < counter; i++) {
-                            String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/productos_pedidos .c.php" +
-                                    "?id_pedido";
-
-                            JsonArrayRequest jsonrequest = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
-                                @Override
-                                public void onResponse(JSONArray response) {
-                                    try {
-                                        JSONObject object = (JSONObject) response.get(0);
-
-                                        if (object.getString("Code") == "01") {
-
-
-
-                                        }
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            }, new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    VolleyLog.d("ERROR VOLLEY", "Error: " + error.getMessage());
-                                    Toast.makeText(getApplicationContext(),
-                                            error.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
+        if (UserVariables.getInstance().getOrderID() == null) {
+            JsonObjectRequest creaPedido = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        if (response.getString("Code").equals("01")) {
+                            orderID = response.getString("IDPedido");
+                            Log.d("Good Response 1", response.toString() + " " + response.getString("Code"));
+                            UserVariables.getInstance().setOrderID(orderID);
+                            buy();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Could not create the order. Check internet connection or contact admin.", Toast.LENGTH_LONG).show();
+                            //orderID = null;
+                            //UserVariables.getInstance().setOrderID(orderID);
+                            Log.d("Bad Response 1", response.toString() + " " + response.getString("Code"));
                         }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d("ERROR VOLLEY", "Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.d("Error: " + error.getMessage());
+                    Toast.makeText(getApplicationContext(),
+                            error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            queue.add(creaPedido);
+        } else {
+            buy();
+        }
+
 
         //////////////////////////////TO DO/////////////////////////////////
         //--crear pedido con servicio pedido.c.php
@@ -241,24 +225,42 @@ public class item_Product extends AppCompatActivity {
         //--Terminar codigo cuando administrador quiera ver datos de un Empleado.
         //--Mejorar Servicios php
         ////////////////////////////////////////////////////////////////////
-
-        Bundle myIntent = getIntent().getExtras();
-
-        if(myIntent != null) {value = myIntent.getString("idProduct");}
-
-
-        p_id = (EditText) findViewById(R.id.id);
-        p_name = (EditText) findViewById(R.id.product_name);
-        p_image = (EditText) findViewById(R.id.product_image);
-        p_stock = (EditText) findViewById(R.id.product_stock);
-        p_price = (EditText) findViewById(R.id.product_price);
-        p_category = (EditText) findViewById(R.id.product_category);
-
-
-
     }
 
+    public void buy() {
+        //--crear pedido_producto con counter como cantidad de producto,
+        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/productos_pedidos.c.php" +
+                "?idpr=" + UserVariables.getInstance().getOrderID() +
+                "&idpe=" + value +
+                "&cant=" + counter +
+                "&ide=" + UserVariables.getInstance().getEmployeeID();
+        Log.d("Request 2", url);
 
+        JsonObjectRequest jsonrequest = new JsonObjectRequest(Request.Method.GET,url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    if (response.getString("Code").equals("01")) {
+                        Toast.makeText(getApplicationContext(), "Item bought" , Toast.LENGTH_LONG).show();
+                        Log.d("Good Response 2", response.toString() + " " + response.getString("Code"));
+                    } else {
+                        Log.d("Bad Response 2", response.toString() + " " + response.getString("Code"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        queue.add(jsonrequest);
+    }
 
         /////////////////////////////BONUS//////////////////////////////////
         //--Dividir productos por categorias en los fragmentos.

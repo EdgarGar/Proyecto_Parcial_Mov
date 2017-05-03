@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText user, password;
     private ProgressDialog pDialog;
-    private String jsonResponse, jsonmessage, jsonRole;
+    private String jsonResponse, jsonmessage, jsonRole, userID;
 
     private static String TAG = LoginActivity.class.getSimpleName();
 
@@ -69,8 +69,10 @@ public class LoginActivity extends AppCompatActivity {
                     jsonResponse = response.getString("Code");
                     jsonmessage = response.getString("Message");
                     jsonRole = response.getString("rol");
+                    userID = response.getString("id");
 
                     Toast.makeText(getApplicationContext(), jsonmessage, Toast.LENGTH_LONG).show();
+                    UserVariables.getInstance().setEmployeeID(userID);
 
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("1") == 0)){
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Administrator.class);

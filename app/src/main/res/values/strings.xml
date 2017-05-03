@@ -31,8 +31,8 @@
     <string name="employe_phone">phone</string>
     <string name="employe_mail">mail</string>
     <string name="employe_salary">salary</string>
-    
-    
+
+
     <!--Info Product-->
     <string name="id_product">id</string>
     <string name="name_product">name product</string>

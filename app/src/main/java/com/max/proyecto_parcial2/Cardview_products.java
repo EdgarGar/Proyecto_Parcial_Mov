@@ -79,6 +79,7 @@ public class Cardview_products extends RecyclerView.Adapter<Cardview_products.Vi
                     Bundle id = new Bundle();
                     id.putString("idProduct", lista.get(getAdapterPosition()).getid());
                     mainIntent.putExtras(id);
+                    UserVariables.getInstance().tempProduct = lista.get(getAdapterPosition());
                     verElemento.getContext().startActivity(mainIntent);
                 }
             });

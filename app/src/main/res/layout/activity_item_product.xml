@@ -73,7 +73,7 @@
                 android:id="@+id/additem_tocart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add to Cart" />
+                android:text="Buy quantity" />
 
             <Button
                 android:id="@+id/addquantity"

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -39,10 +40,11 @@ public class MainActivity_Employee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_employee);
+        UserVariables.getInstance().setClientID("1");
+        UserVariables.getInstance().setOrderID(null);
 
         lv = (RecyclerView) findViewById(R.id.car_list);
         lv.setLayoutManager(new LinearLayoutManager(this));
-
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);

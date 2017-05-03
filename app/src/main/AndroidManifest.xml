@@ -31,7 +31,7 @@
             android:parentActivityName=".MainActivity_Employee">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity_Employee"/>
+                android:value=".MainActivity_Employee" />
         </activity>
     </application>
 
