@@ -131,6 +131,14 @@
                 android:layout_height="match_parent"
                 android:id="@+id/payment"
                 android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/Image_url"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout

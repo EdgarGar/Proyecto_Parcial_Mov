@@ -2,6 +2,8 @@ package com.max.proyecto_parcial2;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +25,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class item_Employee extends AppCompatActivity {
 
     private String value = "";
@@ -34,6 +42,7 @@ public class item_Employee extends AppCompatActivity {
     private TextView mobile;
     private TextView role;
     private TextView payment;
+    private TextView t_image;
 
     String jsonResponse, jsonmessage;
 
@@ -66,6 +75,7 @@ public class item_Employee extends AppCompatActivity {
         role = (TextView) findViewById(R.id.role);
         payment = (TextView) findViewById(R.id.payment);
         image = (ImageView) findViewById(R.id.profile);
+        t_image = (TextView) findViewById(R.id.Image_url);
 
         delete = (Button) findViewById(R.id.btn_delete);
 
@@ -83,16 +93,17 @@ public class item_Employee extends AppCompatActivity {
                     mobile.setText(employee.getString("telefono"));
                     role.setText(employee.getString("rol"));
                     payment.setText(employee.getString("sueldo"));
+                    t_image.setText(employee.getString("imagen"));
 
-                    /*try {
-                        item_Product.ImageDownloader task = new item_Product.ImageDownloader();
+                    try {
+                        item_Employee.ImageDownloader task = new item_Employee.ImageDownloader();
                         Bitmap myImage = task.execute(t_image.getText().toString()).get();
-                        imageView.setImageBitmap(myImage);
+                        image.setImageBitmap(myImage);
                     }
                     catch(Exception e)
                     {
                         e.printStackTrace();
-                    }*/
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -158,6 +169,33 @@ public class item_Employee extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(jsonrequest);
+    }
+
+    public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
+        @Override
+        protected Bitmap doInBackground(String... urls){
+            try {
+                URL url = new URL(urls[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
+
+                InputStream inputStream= connection.getInputStream();
+
+                Bitmap myBitmap =  BitmapFactory.decodeStream(inputStream);
+
+                return myBitmap;
+            }
+            catch(MalformedURLException e)
+            {
+                e.printStackTrace();
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
     }
 }
 
