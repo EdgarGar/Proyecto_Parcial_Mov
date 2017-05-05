@@ -33,6 +33,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity_Employee" />
         </activity>
+        <activity android:name=".MainActivity_Client" />
+        <activity android:name=".Client_Catalog"></activity>
     </application>
 
 </manifest>

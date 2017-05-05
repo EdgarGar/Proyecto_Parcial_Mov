@@ -65,10 +65,15 @@ public class LoginActivity extends AppCompatActivity {
         final JsonObjectRequest jsonrequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.d ("response", response.toString());
                 try {
                     jsonResponse = response.getString("Code");
                     jsonmessage = response.getString("Message");
-                    jsonRole = response.getString("rol");
+                    if (response.has("rol")) {
+                        jsonRole = response.getString("rol");
+                    } else {
+                        jsonRole = "cliente";
+                    }
                     userID = response.getString("id");
 
                     Toast.makeText(getApplicationContext(), jsonmessage, Toast.LENGTH_LONG).show();
@@ -80,6 +85,11 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("2") == 0)){
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Employee.class);
+                        startActivity(mainIntent);
+                    }
+                    // If no role is set, then a user is connecting
+                    if(jsonResponse.compareTo("01") == 0 && jsonRole.compareTo("cliente") == 0) {
+                        Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Client.class);
                         startActivity(mainIntent);
                     }
                 } catch (JSONException e) {
@@ -100,8 +110,6 @@ public class LoginActivity extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(jsonrequest);
-
-
     }
 
     private void showpDialog() {

@@ -46,16 +46,15 @@ public class MainActivity_Employee extends AppCompatActivity {
         lv = (RecyclerView) findViewById(R.id.car_list);
         lv.setLayoutManager(new LinearLayoutManager(this));
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+//        viewPager = (ViewPager) findViewById(R.id.viewpager);
+//        setupViewPager(viewPager);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-
+//        tabLayout = (TabLayout) findViewById(R.id.tabs);
+//        tabLayout.setupWithViewPager(viewPager);
 
         String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/producto.r.php";
 
@@ -80,13 +79,13 @@ public class MainActivity_Employee extends AppCompatActivity {
         Volley.newRequestQueue(getApplicationContext()).add(product_json_array);
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new AudioFragment(), "AUDIO");
-        adapter.addFragment(new TVFragment(), "TV");
-        adapter.addFragment(new InstrumentFragment(), "INSTRUMENT");
-        viewPager.setAdapter(adapter);
-    }
+//    private void setupViewPager(ViewPager viewPager) {
+//        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+//        adapter.addFragment(new AudioFragment(), "AUDIO");
+//        adapter.addFragment(new TVFragment(), "TV");
+//        adapter.addFragment(new InstrumentFragment(), "INSTRUMENT");
+//        viewPager.setAdapter(adapter);
+//    }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();

@@ -1,11 +1,11 @@
 <resources>
     <!--App Name-->
-    <string name="app_name">Catalogue</string>
+    <string name="app_name"></string>
 
     <!--Login Activity Strings-->
     <string name="login_button_text">Log in</string>
     <string name="password_text_hint">Password</string>
-    <string name="user_text_hint">Username</string>
+    <string name="user_text_hint">Email</string>
     <string name="audio">Audio</string>
     <string name="tv">TV</string>
     <string name="instrument">Instruments</string>
@@ -40,5 +40,9 @@
     <string name="stock_product">stock</string>
     <string name="price_product">price</string>
     <string name="categories_product">categories</string>
+
+    <!--Info Client-->
+    <string name="client_btn_catalog">See Catalog</string>
+    <string name="client_btn_history">See Purchase History</string>
 
 </resources>
