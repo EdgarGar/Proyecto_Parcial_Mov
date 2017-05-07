@@ -1,5 +1,6 @@
 package com.max.proyecto_parcial2;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -189,6 +190,11 @@ public class item_Product extends AppCompatActivity {
                             Log.d("Good Response 1", response.toString() + " " + response.getString("Code"));
                             UserVariables.getInstance().setOrderID(orderID);
                             buy();
+                            Intent orderIntent = new Intent().setClass(item_Product.this, Order.class);
+                            Bundle id = new Bundle();
+                            id.putString("idOrder", UserVariables.getInstance().getOrderID());
+                            orderIntent.putExtras(id);
+                            startActivity(orderIntent);
                         } else {
                             Toast.makeText(getApplicationContext(), "Could not create the order. Check internet connection or contact admin.", Toast.LENGTH_LONG).show();
                             //orderID = null;
