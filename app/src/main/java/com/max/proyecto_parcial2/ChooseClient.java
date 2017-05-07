@@ -27,7 +27,8 @@ public class ChooseClient extends AppCompatActivity {
         insertClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent insertIntent = new Intent().setClass(ChooseClient.this, InsertClientEmployee.class);
+                startActivity(insertIntent);
             }
         });
     }
