@@ -34,7 +34,8 @@
                 android:value=".MainActivity_Employee" />
         </activity>
         <activity android:name=".MainActivity_Client" />
-        <activity android:name=".Client_Catalog"></activity>
+        <activity android:name=".Client_Catalog" />
+        <activity android:name=".Order"></activity>
     </application>
 
 </manifest>
