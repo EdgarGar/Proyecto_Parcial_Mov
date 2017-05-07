@@ -44,5 +44,6 @@
     <!--Info Client-->
     <string name="client_btn_catalog">See Catalog</string>
     <string name="client_btn_history">See Purchase History</string>
+    <string name="title_activity_insert_client_employee">InsertClientEmployee</string>
 
 </resources>

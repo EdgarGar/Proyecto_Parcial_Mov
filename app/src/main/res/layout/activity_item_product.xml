@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
+    android:background="@color/bg_login"
     tools:context="com.max.proyecto_parcial2.item_Product"
     android:orientation="vertical">
 
@@ -17,6 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical"
             android:scrollbars="vertical">
 
@@ -29,6 +31,7 @@
             <TextView
                 android:id="@+id/ProductName"
                 android:layout_width="match_parent"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:text="Product" />
 
@@ -36,24 +39,28 @@
                 android:id="@+id/ProductPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Unit Price: " />
 
             <TextView
                 android:id="@+id/ProductQuantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Quantity: " />
 
             <TextView
                 android:id="@+id/Subtotal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="Subtotal: " />
 
             <TextView
                 android:id="@+id/Image_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text=""
                 android:visibility="invisible" />
         </LinearLayout>
@@ -65,20 +72,24 @@
 
             <Button
                 android:id="@+id/removequantity"
-                android:layout_width="wrap_content"
+                android:layout_width="49dp"
                 android:layout_height="wrap_content"
-                android:text="-" />
+                android:background="@drawable/minus" />
 
             <Button
-                android:id="@+id/additem_tocart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/cart"
+                android:drawablePadding="8dp"
+                android:textColor="@android:color/white"
+                android:id="@+id/additem_tocart"
                 android:text="Buy quantity" />
 
             <Button
                 android:id="@+id/addquantity"
-                android:layout_width="wrap_content"
+                android:layout_width="49dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/plus"
                 android:text="+" />
         </GridLayout>
     </LinearLayout>
