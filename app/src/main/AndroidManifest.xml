@@ -35,7 +35,9 @@
         </activity>
         <activity android:name=".MainActivity_Client" />
         <activity android:name=".Client_Catalog" />
-        <activity android:name=".Order"></activity>
+        <activity android:name=".Order" />
+        <activity android:name=".ChooseClient" />
+        <activity android:name=".ListClients"></activity>
     </application>
 
 </manifest>
