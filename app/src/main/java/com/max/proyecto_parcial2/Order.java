@@ -71,8 +71,8 @@ public class Order extends AppCompatActivity {
                     setEmployee(valueEmployee);
                     setClient(valueClient);
 
-                    String newDate = order.getString("fecha");
-                    delivery.setText(setDateOfDelivery(newDate));
+                    String newFormat = order.getString("fecha_entrega");
+                    delivery.setText(setDateOfDelivery(newFormat));
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -150,10 +150,7 @@ public class Order extends AppCompatActivity {
     }
 
     String setDateOfDelivery(String date){
-        String newDate = date.substring(0,10);
-        int day = Integer.parseInt(newDate.substring(9));
-        day += 3;
-        String str = newDate.substring(0,8) + day;
-        return str;
+        String newFormat = date.substring(0,10);
+        return newFormat;
     }
 }
