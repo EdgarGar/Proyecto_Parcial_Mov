@@ -31,24 +31,41 @@ public class ListClients extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_list);
 
-        /*String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/cliente.r.php";
+
+        final ListView listView = (ListView) findViewById(R.id.list);
+
+        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/cliente.r.php";
 
         JsonArrayRequest product_json_array = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        int cantidad = response.length();
-                        for(int i = 0; i < cantidad; i++){
-                            JSONObject client = (JSONObject) response.get(i);
+                        JSONObject obj = null;
+                        Client client;
+                        clients.clear();
 
-                            String id = client.getString("id");
-                            String nombre = client.getString("nombre");
-                            String apellido = client.getString("apellido");
-                            String mail = client.getString("mail");
-                            String direccion = client.getString("direccion");
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+                                obj = response.getJSONObject(i);
 
-                            clients.add(new Client(id, nombre, apellido, mail, direccion));
+                                String id = obj.getString("id");
+                                String nombre = obj.getString("nombre");
+                                String apellido = obj.getString("apellido");
+                                String mail = obj.getString("mail");
+                                String direccion = obj.getString("direccion");
+
+                                clients.add(new Client(id, nombre, apellido, mail, direccion));
+
+
+                            }
+                        }catch(JSONException e)
+                        {
+                            e.printStackTrace();
                         }
+
+                        ClientAdapter adapter = new ClientAdapter(getApplicationContext(),clients);
+
+                        listView.setAdapter(adapter);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -56,18 +73,12 @@ public class ListClients extends AppCompatActivity {
                 VolleyLog.d("Error en: " + error.getMessage());
             }
         });
-        Volley.newRequestQueue(getApplicationContext()).add(product_json_array);*/
+        Volley.newRequestQueue(getApplicationContext()).add(product_json_array);
 
-        clients.add(new Client("1", "hola", "como", "tas@bien.com", "tu?"));
+        /*clients.add(new Client("1", "hola", "como", "tas@bien.com", "tu?"));
         clients.add(new Client("2", "hola", "como", "tas@bien.com", "tu?"));
         clients.add(new Client("3", "hola", "como", "tas@bien.com", "tu?"));
-        clients.add(new Client("4", "hola", "como", "tas@bien.com", "tu?"));
-
-        ClientAdapter adapter = new ClientAdapter(this,clients);
-
-        ListView listView = (ListView) findViewById(R.id.list);
-
-        listView.setAdapter(adapter);
+        clients.add(new Client("4", "hola", "como", "tas@bien.com", "tu?"));*/
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
