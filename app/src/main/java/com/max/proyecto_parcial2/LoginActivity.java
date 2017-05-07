@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(mainIntent);
                     }
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("2") == 0)){
-                        Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Employee.class);
+                        Intent mainIntent = new Intent().setClass(LoginActivity.this, ChooseClient.class);
                         startActivity(mainIntent);
                     }
                     // If no role is set, then a user is connecting

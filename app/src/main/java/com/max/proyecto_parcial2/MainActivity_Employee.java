@@ -40,7 +40,6 @@ public class MainActivity_Employee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_employee);
-        UserVariables.getInstance().setClientID("1");
         UserVariables.getInstance().setOrderID(null);
 
         lv = (RecyclerView) findViewById(R.id.car_list);
