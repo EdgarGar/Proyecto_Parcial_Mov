@@ -15,7 +15,6 @@ public class OptionsAdministrator extends AppCompatActivity {
 
         Button clients = (Button) findViewById(R.id.btn_clients);
         Button products = (Button) findViewById(R.id.btn_products);
-        Button orders = (Button) findViewById(R.id.btn_orders);
         Button employees = (Button) findViewById(R.id.btn_employees);
 
         clients.setOnClickListener(new View.OnClickListener() {
@@ -31,13 +30,6 @@ public class OptionsAdministrator extends AppCompatActivity {
             public void onClick(View v) {
                 Intent productIntent = new Intent().setClass(OptionsAdministrator.this, OptionsProduct.class);
                 startActivity(productIntent);
-            }
-        });
-
-        orders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
