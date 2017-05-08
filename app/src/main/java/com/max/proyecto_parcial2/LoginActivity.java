@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("1") == 0)){
                         UserVariables.getInstance().setStatus("1");
-                        Intent mainIntent = new Intent().setClass(LoginActivity.this, OptionsAdministrator.class);
+                        Intent mainIntent = new Intent().setClass(LoginActivity.this, GraphsReport_SoldProduct.class);
                         startActivity(mainIntent);
                     }
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("2") == 0)){

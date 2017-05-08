@@ -46,7 +46,8 @@
         <activity android:name=".OptionsAdministrator" />
         <activity android:name=".ItemProductAdministrator" />
         <activity android:name=".OptionsProduct" />
-        <activity android:name=".InsertProduct"></activity>
+        <activity android:name=".InsertProduct" />
+        <activity android:name=".GraphsReport_SoldProduct"></activity>
     </application>
 
 </manifest>
