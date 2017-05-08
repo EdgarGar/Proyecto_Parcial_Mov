@@ -78,8 +78,8 @@ public class InsertProduct extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    jsonResponse = response.getString("Codigo");
-                    jsonmessage = response.getString("Mensaje");
+                    jsonResponse = response.getString("Code");
+                    jsonmessage = response.getString("Message");
 
 
                     if((jsonResponse.compareTo("01") == 0)){
