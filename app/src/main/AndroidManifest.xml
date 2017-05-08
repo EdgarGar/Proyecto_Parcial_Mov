@@ -44,7 +44,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ClientOPtions" />
         <activity android:name=".OptionsAdministrator" />
-        <activity android:name=".ItemProductAdministrator"></activity>
+        <activity android:name=".ItemProductAdministrator" />
+        <activity android:name=".OptionsProduct" />
+        <activity android:name=".InsertProduct"></activity>
     </application>
 
 </manifest>

@@ -29,7 +29,7 @@ public class OptionsAdministrator extends AppCompatActivity {
         products.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent productIntent = new Intent().setClass(OptionsAdministrator.this, MainActivity_Employee.class);
+                Intent productIntent = new Intent().setClass(OptionsAdministrator.this, OptionsProduct.class);
                 startActivity(productIntent);
             }
         });
