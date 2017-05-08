@@ -21,6 +21,8 @@ public class Client {
         direccion = _direccion;
     }
 
+    public Client(){};
+
     //getters
     public String getIdClient(){
         return id;
