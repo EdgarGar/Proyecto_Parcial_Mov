@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                     UserVariables.getInstance().setEmployeeID(userID);
 
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("1") == 0)){
+                        UserVariables.getInstance().setStatus("1");
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, OptionsAdministrator.class);
                         startActivity(mainIntent);
                     }

@@ -43,7 +43,8 @@
             android:label="@string/title_activity_insert_client_employee"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ClientOPtions" />
-        <activity android:name=".OptionsAdministrator"></activity>
+        <activity android:name=".OptionsAdministrator" />
+        <activity android:name=".ItemProductAdministrator"></activity>
     </application>
 
 </manifest>

@@ -74,13 +74,22 @@ public class Cardview_products extends RecyclerView.Adapter<Cardview_products.Vi
             carta.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                if(UserVariables.getInstance().getStatus() == "1"){
+                    final Intent mainIntent = new Intent(verElemento.getContext(), ItemProductAdministrator.class);
+                    Bundle id = new Bundle();
+                    id.putString("idProduct", lista.get(getAdapterPosition()).getid());
+                    mainIntent.putExtras(id);
+                    UserVariables.getInstance().tempProduct = lista.get(getAdapterPosition());
+                    verElemento.getContext().startActivity(mainIntent);
+                }
+                else {
                     final Intent mainIntent = new Intent(verElemento.getContext(), item_Product.class);
                     Bundle id = new Bundle();
                     id.putString("idProduct", lista.get(getAdapterPosition()).getid());
                     mainIntent.putExtras(id);
                     UserVariables.getInstance().tempProduct = lista.get(getAdapterPosition());
                     verElemento.getContext().startActivity(mainIntent);
+                }
                 }
             });
 

@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class UserVariables {
     private static UserVariables ourInstance = new UserVariables();
+    protected static String status;  //para saber si esta en modo administrador o empleado
     protected static String employeeID;
     protected static String clientID;
     protected static String orderID = null;
@@ -28,4 +29,7 @@ public class UserVariables {
 
     public static String getOrderID() { return orderID; }
     public static void setOrderID(String newValue) { orderID = newValue; }
+
+    public static String getStatus() { return status; }
+    public static void setStatus(String newValue) { status = newValue; }
 }
