@@ -1,10 +1,17 @@
 package com.max.proyecto_parcial2;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -12,25 +19,48 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ClientOPtions extends AppCompatActivity {
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-    String jsonResponse, jsonmessage;
+public class ClientOPtions extends AppCompatActivity {
+    private TextView id, nombre, apellido, mail, direccion, imagen;
+    private String jsonResponse, jsonmessage;
+    private String value = "";
+    private Button btn_delete;
+    private Button btn_select;
+    private ImageView imageView;
+    RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_options);
+        queue = Volley.newRequestQueue(getApplicationContext());
 
-        Button select = (Button) findViewById(R.id.btn_select_client);
-        Button delete = (Button) findViewById(R.id.btn_delete_client);
+        nombre = (TextView) findViewById(R.id.ClientName_administrator);
+        id = (TextView) findViewById(R.id.IdClient_administrator);
+        imagen = (TextView) findViewById(R.id.Image_url_client_administrator);
+        imageView = (ImageView) findViewById(R.id.imageViewURL_client_administrator);
+        apellido = (TextView) findViewById(R.id.ClientApellido_administrator);
+        mail = (TextView) findViewById(R.id.MailClient_administrator);
+        direccion = (TextView) findViewById(R.id.AddressClient_administrator);
 
-        select.setOnClickListener(new View.OnClickListener() {
+        btn_delete = (Button) findViewById(R.id.btn_delete_client);
+        btn_select = (Button) findViewById(R.id.btn_select_client);
+
+        btn_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent listIntent = new Intent().setClass(ClientOPtions.this, MainActivity_Employee.class);
@@ -38,7 +68,7 @@ public class ClientOPtions extends AppCompatActivity {
             }
         });
 
-        delete.setOnClickListener(new View.OnClickListener() {
+        btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 delete_user();
@@ -47,6 +77,75 @@ public class ClientOPtions extends AppCompatActivity {
             }
         });
 
+        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/cliente.r.php?id=" + value;
+
+        JsonArrayRequest jsonrequest = new JsonArrayRequest(Request.Method.GET,url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    JSONObject product = (JSONObject) response.get(0);
+
+                    nombre.setText("Name: " + product.getString("nombre"));
+                    apellido.setText("Last Name: "  + product.getString("apellido"));
+                    mail.setText(product.getString("mail"));
+                    id.setText("ID: " + product.getString("id"));
+                    direccion.setText("Address: " + product.getString("direccion"));
+                    imagen.setText(product.getString("imagen"));
+
+                    try {
+                        if(imagen.getText().equals("")) {
+                            ImageDownloader task = new ImageDownloader();
+                            Bitmap myImage = task.execute(imagen.getText().toString()).get();
+                            imageView.setImageBitmap(myImage);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("ERROR VOLLEY", "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        queue.add(jsonrequest);
+
+    }
+
+    public class ImageDownloader extends AsyncTask<String, Void, Bitmap>{
+        @Override
+        protected Bitmap doInBackground(String... urls){
+            try {
+                URL url = new URL(urls[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.connect();
+
+                InputStream inputStream= connection.getInputStream();
+
+                Bitmap myBitmap =  BitmapFactory.decodeStream(inputStream);
+
+                return myBitmap;
+            }
+            catch(MalformedURLException e)
+            {
+                e.printStackTrace();
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
     }
 
     void delete_user(){
@@ -86,3 +185,4 @@ public class ClientOPtions extends AppCompatActivity {
         queue.add(jsonrequest);
     }
 }
+
