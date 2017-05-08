@@ -68,9 +68,9 @@ public class ItemProductAdministrator extends AppCompatActivity {
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*delete_product();
+                delete_product();
                 Intent mainIntent = new Intent().setClass(ItemProductAdministrator.this, OptionsAdministrator.class);
-                startActivity(mainIntent);*/
+                startActivity(mainIntent);
             }
         });
 
@@ -150,8 +150,8 @@ public class ItemProductAdministrator extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    jsonResponse = response.getString("Codigo");
-                    jsonmessage = response.getString("Mensaje");
+                    jsonResponse = response.getString("Code");
+                    jsonmessage = response.getString("Message");
 
 
                     if((jsonResponse.compareTo("01") == 0)){
