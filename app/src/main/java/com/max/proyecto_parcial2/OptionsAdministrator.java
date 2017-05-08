@@ -21,7 +21,7 @@ public class OptionsAdministrator extends AppCompatActivity {
         clients.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent clientIntent = new Intent().setClass(OptionsAdministrator.this, ListClients.class);
+                Intent clientIntent = new Intent().setClass(OptionsAdministrator.this, ChooseClient.class);
                 startActivity(clientIntent);
             }
         });
@@ -44,7 +44,8 @@ public class OptionsAdministrator extends AppCompatActivity {
         employees.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent employeeIntent = new Intent().setClass(OptionsAdministrator.this, MainActivity_Administrator.class);
+                startActivity(employeeIntent);
             }
         });
     }
