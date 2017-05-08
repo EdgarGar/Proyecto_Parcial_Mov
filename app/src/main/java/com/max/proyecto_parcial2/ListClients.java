@@ -86,8 +86,8 @@ public class ListClients extends AppCompatActivity {
                 Client client = clients.get(position);
                 UserVariables.getInstance().setClientID(client.getIdClient());
 
-                Intent employeeIntent = new Intent().setClass(ListClients.this, MainActivity_Employee.class);
-                startActivity(employeeIntent);
+                Intent optionsIntent = new Intent().setClass(ListClients.this, ClientOPtions.class);
+                startActivity(optionsIntent);
             }
         });
     }
