@@ -42,7 +42,8 @@
             android:name=".InsertClientEmployee"
             android:label="@string/title_activity_insert_client_employee"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ClientOPtions"></activity>
+        <activity android:name=".ClientOPtions" />
+        <activity android:name=".OptionsAdministrator"></activity>
     </application>
 
 </manifest>
