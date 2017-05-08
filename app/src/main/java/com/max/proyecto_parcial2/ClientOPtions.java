@@ -29,7 +29,6 @@ public class ClientOPtions extends AppCompatActivity {
 
         Button select = (Button) findViewById(R.id.btn_select_client);
         Button delete = (Button) findViewById(R.id.btn_delete_client);
-        Button update = (Button) findViewById(R.id.btn_update_client);
 
         select.setOnClickListener(new View.OnClickListener() {
             @Override
