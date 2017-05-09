@@ -109,8 +109,8 @@ public class item_Product extends AppCompatActivity {
                 try {
                     JSONObject product = (JSONObject) response.get(0);
 
-                    t_name.setText(R.string.product + ":" + product.getString("nombre"));
-                    t_price.setText(R.string.unit_price + ": "  + product.getString("precio"));
+                    t_name.setText("Product:" + product.getString("nombre"));
+                    t_price.setText("Unit Price: "  + product.getString("precio"));
                     t_image.setText(product.getString("imagen"));
 
                     try {
