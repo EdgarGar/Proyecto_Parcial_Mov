@@ -85,11 +85,11 @@ public class ClientOPtions extends AppCompatActivity {
                 try {
                     JSONObject product = (JSONObject) response.get(0);
 
-                    nombre.setText(R.string.name_client + ": " + product.getString("nombre"));
-                    apellido.setText(R.string.lastname_client + ": "  + product.getString("apellido"));
-                    mail.setText(R.string.mail_client + ": " +product.getString("mail"));
+                    nombre.setText("Name: " + product.getString("nombre"));
+                    apellido.setText("Last name: "  + product.getString("apellido"));
+                    mail.setText("Mail: " +product.getString("mail"));
                     id.setText("ID: " + product.getString("id"));
-                    direccion.setText(R.string.address_client + ": " + product.getString("direccion"));
+                    direccion.setText("Address: " + product.getString("direccion"));
                     imagen.setText(product.getString("imagen"));
 
                     try {
