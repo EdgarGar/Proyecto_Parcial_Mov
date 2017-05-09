@@ -6,32 +6,22 @@
     android:background="@color/bg_login"
     android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <Button
+        android:text="@string/btn_list_clients"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:id="@+id/btn_list_clients" />
 
-        <Button
-            android:text="@string/btn_list_clients"
-            android:id="@+id/btn_list_clients"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:background="@color/btn_login_bg"
-            android:textColor="@color/btn_login"/>
+    <Button
+        android:text="@string/btn_insert_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_insert_client" />
 
-        <Button
-            android:text="@string/btn_insert_client"
-            android:id="@+id/btn_insert_client"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
-            android:background="@color/btn_login_bg"
-            android:textColor="@color/btn_login"/>
-
-    </LinearLayout>
+    <Button
+        android:text="@string/btn_hist_employee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_hist_employee" />
 
 </LinearLayout>

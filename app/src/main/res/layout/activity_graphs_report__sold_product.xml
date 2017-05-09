@@ -7,9 +7,11 @@
     tools:context="com.max.proyecto_parcial2.GraphsReport_SoldProduct">
 
     <com.github.mikephil.charting.charts.BarChart
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/Bargraph">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/Bargraph"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
     </com.github.mikephil.charting.charts.BarChart>
 
 </android.support.constraint.ConstraintLayout>

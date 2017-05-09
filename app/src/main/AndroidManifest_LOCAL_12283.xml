@@ -38,21 +38,9 @@
         <activity android:name=".Order" />
         <activity android:name=".ChooseClient" />
         <activity android:name=".ListClients" />
-        <activity
-            android:name=".InsertClientEmployee"
-            android:label="@string/title_activity_insert_client_employee"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ClientOPtions" />
-        <activity android:name=".OptionsAdministrator" />
-        <activity android:name=".ItemProductAdministrator" />
-        <activity android:name=".OptionsProduct" />
-        <activity android:name=".InsertProduct" />
-        <activity android:name=".GraphsReport_SoldProduct" />
         <activity android:name=".Cart" />
         <activity android:name=".ClientHistory" />
-        <activity android:name=".Cardview_cartitem" />
-        <activity android:name=".Cardview_history_item" />
-        <activity android:name=".GraphsReport_Comission"></activity>
+        <activity android:name=".Cardview_cartitem"></activity>
     </application>
 
 </manifest>

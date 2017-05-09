@@ -103,6 +103,15 @@
     <string name="id_user">ID User</string>
     <string name="btn_return">Return</string>
 
+    <!--Commission graph-->
+    <string name="btn_hist_employee">See commission graph</string>
+    <string name="graph_commission_title">Commission by day, month and year</string>
+    <string-array name="graph_dropdown_options">
+        <item>Day</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+
     <!--Item Employee-->
     <string name="username">Username</string>
     <string name="email">Email</string>
@@ -110,10 +119,17 @@
     <string name="role">Role</string>
     <string name="payment">Payment</string>
 
-    <string name="str_en" >English</string>
-    <string name="str_es" >Spanish</string>
-    <string name="str_pt" >Portuguese</string>
-    <string-array name="languages" >
+    <!--client history-->
+    <string name="c_his_title">Filter by year, month or day</string>
+    <string name="c_his_y">Year</string>
+    <string name="c_his_m">Month</string>
+    <string name="c_his_d">Day</string>
+    <string name="btn_c_his_update">Update</string>
+
+    <string name="str_en">English</string>
+    <string name="str_es">Spanish</string>
+    <string name="str_pt">Portuguese</string>
+    <string-array name="languages">
         <item>@string/str_en</item>
         <item>@string/str_es</item>
         <item>@string/str_pt</item>

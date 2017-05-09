@@ -40,7 +40,7 @@ public class item_Product extends AppCompatActivity {
     private String jsonSubtotal, jsonQuantity;
     private String value = "", orderID = "";
     private Button btn_increment, btn_decrement, btn_send;
-    private int counter = 0;
+    private int counter = 0, precio = 0;
     private ImageView imageView;
     RequestQueue queue;
 
@@ -108,9 +108,9 @@ public class item_Product extends AppCompatActivity {
             public void onResponse(JSONArray response) {
                 try {
                     JSONObject product = (JSONObject) response.get(0);
-
+                    precio = Integer.parseInt(product.getString("precio"));
                     t_name.setText("Product:" + product.getString("nombre"));
-                    t_price.setText("Unit Price: "  + product.getString("precio"));
+                    t_price.setText("Price: "  + String.valueOf(precio));
                     t_image.setText(product.getString("imagen"));
 
                     try {
@@ -170,7 +170,7 @@ public class item_Product extends AppCompatActivity {
     public void increment(){
         counter++;
         String[] separated = t_price.getText().toString().split(":");
-        t_subtotal.setText("Subtotal: " + (Integer.parseInt(separated[1])) * counter);
+        t_subtotal.setText("Subtotal: " + precio * counter);
         t_quantity.setText("Quantity: " + (String.valueOf(counter)));
     }
 
@@ -179,7 +179,7 @@ public class item_Product extends AppCompatActivity {
         {
             counter--;
             String[] separated = t_price.getText().toString().split(":");
-            t_subtotal.setText("Subtotal: " + (Integer.parseInt(separated[1])) * counter);
+            t_subtotal.setText("Subtotal: " + precio * counter);
             t_quantity.setText("Quantity: " + (String.valueOf(counter)));
         }
     }

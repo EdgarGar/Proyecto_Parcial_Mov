@@ -30,9 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private static String TAG = LoginActivity.class.getSimpleName();
 
-    String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/login.php";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +54,17 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        user.getText().clear();
+        password.getText().clear();
+    }
+
     private void makeJSONObjectRequest(){
         showpDialog();
 
+        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/login.php";
         url += "?user=" + user.getText().toString() + "&password=" + password.getText().toString();
 
         final JsonObjectRequest jsonrequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -89,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("2") == 0)){
                         UserVariables.getInstance().setClientUser(false);
                         UserVariables.getInstance().setEmployeeID(userID);
+                        UserVariables.getInstance().setStatus("0");
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, ChooseClient.class);
                         startActivity(mainIntent);
                     }
@@ -97,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                         UserVariables.getInstance().setClientUser(true);
                         UserVariables.getInstance().setEmployeeID("1");
                         UserVariables.getInstance().setClientID(userID);
+                        UserVariables.getInstance().setStatus("0");
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Client.class);
                         startActivity(mainIntent);
                     }

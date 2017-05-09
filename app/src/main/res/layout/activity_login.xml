@@ -53,5 +53,6 @@
             android:background="@color/btn_login_bg"
             android:textColor="@color/btn_login"
             android:text="@string/login_button_text" />
-        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>
