@@ -16,6 +16,7 @@ public class OptionsAdministrator extends AppCompatActivity {
         Button clients = (Button) findViewById(R.id.btn_clients);
         Button products = (Button) findViewById(R.id.btn_products);
         Button employees = (Button) findViewById(R.id.btn_employees);
+        Button report = (Button) findViewById(R.id.btn_report);
 
         clients.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +39,14 @@ public class OptionsAdministrator extends AppCompatActivity {
             public void onClick(View v) {
                 Intent employeeIntent = new Intent().setClass(OptionsAdministrator.this, MainActivity_Administrator.class);
                 startActivity(employeeIntent);
+            }
+        });
+
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent reportIntent = new Intent().setClass(OptionsAdministrator.this, GraphsReport_SoldProduct.class);
+                startActivity(reportIntent);
             }
         });
     }
