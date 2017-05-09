@@ -91,7 +91,9 @@ public class Cart extends AppCompatActivity {
         queue.add(creaPedido);
     }
 
+    int count;
     private void buyProducts() {
+        count = 0;
         for (int i = 0; i < UserVariables.getInstance().cart.size(); i++) {
             String value = UserVariables.getInstance().cart.get(i).product.getid();
             String counter = String.valueOf(UserVariables.getInstance().cart.get(i).quantity);
@@ -109,7 +111,7 @@ public class Cart extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         if (response.getString("Code").equals("01")) {
-                            Toast.makeText(getApplicationContext(), "All items bought!" , Toast.LENGTH_LONG).show();
+                            count++;
                             Log.d("Good Response 2", response.toString() + " " + response.getString("Code"));
                         } else {
                             Log.d("Bad Response 2", response.toString() + " " + response.getString("Code"));
@@ -128,6 +130,10 @@ public class Cart extends AppCompatActivity {
                 }
             });
             queue.add(jsonrequest);
+        }
+        if (count == UserVariables.getInstance().cart.size()-1) {
+            Toast.makeText(getApplicationContext(), "All items bought!", Toast.LENGTH_LONG).show();
+            UserVariables.getInstance().cart.clear();
         }
     }
 }
