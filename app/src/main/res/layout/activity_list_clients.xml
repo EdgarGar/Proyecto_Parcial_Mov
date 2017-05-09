@@ -20,12 +20,14 @@
                 android:layout_height="match_parent"
                 android:text="@string/name_client"
                 android:gravity="center"
+                android:textColor="@color/input_login"
                 android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
+                android:textColor="@color/input_login"
                 android:gravity="center"
                 android:id="@+id/nombre_client"/>
         </LinearLayout>
@@ -42,12 +44,14 @@
                 android:layout_height="match_parent"
                 android:text="@string/mail_client"
                 android:textStyle="bold"
+                android:textColor="@color/input_login"
                 android:gravity="center"/>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="match_parent"
+                android:textColor="@color/input_login"
                 android:id="@+id/mail_cliente"
                 android:gravity="center"/>
 
@@ -55,6 +59,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:textColor="@color/input_login"
                 android:text="@string/id_client"
                 android:textStyle="bold"
                 android:gravity="center"/>
@@ -63,6 +68,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:textColor="@color/input_login"
                 android:id="@+id/id_cliente"
                 android:gravity="center"/>
         </LinearLayout>
@@ -78,6 +84,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:text="@string/address_client"
+                android:textColor="@color/input_login"
                 android:textStyle="bold"
                 android:gravity="center"/>
 
@@ -85,6 +92,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
+                android:textColor="@color/input_login"
                 android:gravity="center"
                 android:id="@+id/address_cliente"/>
         </LinearLayout>
