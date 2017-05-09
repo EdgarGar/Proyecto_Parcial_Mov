@@ -15,4 +15,12 @@
         android:layout_centerVertical="true"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/firewatch_wp3" />
+
+    <TextView
+        android:id="@+id/Image_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text=""
+        android:visibility="invisible" />
 </LinearLayout>

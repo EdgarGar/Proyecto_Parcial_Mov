@@ -32,6 +32,7 @@
     <string name="employe_mail">mail</string>
     <string name="employe_salary">salary</string>
 
+
     <!--Info Product-->
     <string name="id_product">id</string>
     <string name="name_product">name product</string>
@@ -47,5 +48,6 @@
     <string name="client_btn_history">See Purchase History</string>
     <string name="clnt_btn_cart">Go to cart</string>
     <string name="clnt_btn_buy">Buy all</string>
+    <string name="title_activity_insert_client_employee">InsertClientEmployee</string>
 
 </resources>

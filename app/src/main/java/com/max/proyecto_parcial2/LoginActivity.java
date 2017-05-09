@@ -77,11 +77,13 @@ public class LoginActivity extends AppCompatActivity {
                     userID = response.getString("id");
 
                     Toast.makeText(getApplicationContext(), jsonmessage, Toast.LENGTH_LONG).show();
+                    UserVariables.getInstance().setEmployeeID(userID);
 
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("1") == 0)){
                         UserVariables.getInstance().setClientUser(false);
                         UserVariables.getInstance().setEmployeeID(userID);
-                        Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Administrator.class);
+                        UserVariables.getInstance().setStatus("1");
+                        Intent mainIntent = new Intent().setClass(LoginActivity.this, OptionsAdministrator.class);
                         startActivity(mainIntent);
                     }
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("2") == 0)){
