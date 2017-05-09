@@ -82,12 +82,24 @@ public class item_Product extends AppCompatActivity {
             }
         });
 
-        btn_send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                send();
-            }
-        });
+        // if the user is a client, than the product should be just added to the cart
+        if (UserVariables.getInstance().isClientUser()) {
+            btn_send.setText(R.string.product_btn_client);
+
+            btn_send.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    addToCart();
+                }
+            });
+        } else {
+            btn_send.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    createOrder();
+                }
+            });
+        }
 
         String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/producto.r.php?id=" + value;
 
@@ -172,7 +184,7 @@ public class item_Product extends AppCompatActivity {
         }
     }
 
-    public void send() {
+    public void createOrder() {
         //--crear pedido con servicio pedido.c.php
         String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/pedidos.c.php" +
                 "?ide=" + UserVariables.getInstance().getEmployeeID() +
@@ -180,6 +192,7 @@ public class item_Product extends AppCompatActivity {
                 "&status=1";
         Log.d("Request 1", url);
 
+        // creates a new order if one doesnt exist yet
         if (UserVariables.getInstance().getOrderID() == null) {
             JsonObjectRequest creaPedido = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -189,7 +202,7 @@ public class item_Product extends AppCompatActivity {
                             orderID = response.getString("IDPedido");
                             Log.d("Good Response 1", response.toString() + " " + response.getString("Code"));
                             UserVariables.getInstance().setOrderID(orderID);
-                            buy();
+                            buyProduct();
                             Intent orderIntent = new Intent().setClass(item_Product.this, Order.class);
                             Bundle id = new Bundle();
                             id.putString("idOrder", UserVariables.getInstance().getOrderID());
@@ -216,9 +229,8 @@ public class item_Product extends AppCompatActivity {
             });
             queue.add(creaPedido);
         } else {
-            buy();
+            buyProduct();
         }
-
 
         //////////////////////////////TO DO/////////////////////////////////
         //--crear pedido con servicio pedido.c.php
@@ -233,7 +245,7 @@ public class item_Product extends AppCompatActivity {
         ////////////////////////////////////////////////////////////////////
     }
 
-    public void buy() {
+    public void buyProduct() {
         //--crear pedido_producto con counter como cantidad de producto,
         String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/productos_pedidos.c.php" +
                 "?idpr=" + UserVariables.getInstance().getOrderID() +
@@ -266,6 +278,15 @@ public class item_Product extends AppCompatActivity {
             }
         });
         queue.add(jsonrequest);
+    }
+
+    public void addToCart() {
+        if (counter > 0) {
+            UserVariables.cart.add(new UserVariables.CartItem(UserVariables.getInstance().tempProduct, counter));
+            Toast.makeText(getApplicationContext(), "Item(s) added to cart", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Can't buy 0 products", Toast.LENGTH_LONG).show();
+        }
     }
 
         /////////////////////////////BONUS//////////////////////////////////

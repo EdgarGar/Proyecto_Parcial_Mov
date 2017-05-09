@@ -1,5 +1,6 @@
 package com.max.proyecto_parcial2;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -7,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -56,5 +59,15 @@ public class Client_Catalog extends AppCompatActivity {
             }
         });
         requestQueue.add(product_json_array);
+
+        Button btn_client_cart = (Button) findViewById(R.id.btn_client_cart);
+
+        btn_client_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent().setClass(Client_Catalog.this, Cart.class);
+                startActivity(intent);
+            }
+        });
     }
 }

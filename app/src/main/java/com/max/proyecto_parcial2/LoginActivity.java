@@ -77,18 +77,24 @@ public class LoginActivity extends AppCompatActivity {
                     userID = response.getString("id");
 
                     Toast.makeText(getApplicationContext(), jsonmessage, Toast.LENGTH_LONG).show();
-                    UserVariables.getInstance().setEmployeeID(userID);
 
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("1") == 0)){
+                        UserVariables.getInstance().setClientUser(false);
+                        UserVariables.getInstance().setEmployeeID(userID);
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Administrator.class);
                         startActivity(mainIntent);
                     }
                     if((jsonResponse.compareTo("01") == 0) && (jsonRole.compareTo("2") == 0)){
+                        UserVariables.getInstance().setClientUser(false);
+                        UserVariables.getInstance().setEmployeeID(userID);
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, ChooseClient.class);
                         startActivity(mainIntent);
                     }
                     // If no role is set, then a user is connecting
                     if(jsonResponse.compareTo("01") == 0 && jsonRole.compareTo("cliente") == 0) {
+                        UserVariables.getInstance().setClientUser(true);
+                        UserVariables.getInstance().setEmployeeID("1");
+                        UserVariables.getInstance().setClientID(userID);
                         Intent mainIntent = new Intent().setClass(LoginActivity.this, MainActivity_Client.class);
                         startActivity(mainIntent);
                     }

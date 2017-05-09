@@ -24,5 +24,14 @@ public class MainActivity_Client extends AppCompatActivity {
             }
         });
 
+        Button btn_history = (Button) findViewById(R.id.client_btn_history);
+
+        btn_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent().setClass(MainActivity_Client.this, ClientHistory.class);
+                startActivity(intent);
+            }
+        });
     }
 }

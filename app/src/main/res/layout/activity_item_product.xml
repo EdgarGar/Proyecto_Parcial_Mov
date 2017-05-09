@@ -83,7 +83,7 @@
                 android:drawablePadding="8dp"
                 android:textColor="@android:color/white"
                 android:id="@+id/additem_tocart"
-                android:text="Buy quantity" />
+                android:text="@string/product_btn_employee" />
 
             <Button
                 android:id="@+id/addquantity"

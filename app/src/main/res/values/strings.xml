@@ -21,7 +21,7 @@
     <string name="add_employee_button">Add Employee</string>
     <string name="nextIntent_button">List of Users</string>
 
-    <!--Info Employe-->
+    <!--Info Employee-->
     <string name="employee_id">id</string>
     <string name="employe_name">name</string>
     <string name="employe_lastname">last name</string>
@@ -32,7 +32,6 @@
     <string name="employe_mail">mail</string>
     <string name="employe_salary">salary</string>
 
-
     <!--Info Product-->
     <string name="id_product">id</string>
     <string name="name_product">name product</string>
@@ -40,9 +39,13 @@
     <string name="stock_product">stock</string>
     <string name="price_product">price</string>
     <string name="categories_product">categories</string>
+    <string name="product_btn_employee">Buy quantity</string>
+    <string name="product_btn_client">Add to cart</string>
 
     <!--Info Client-->
     <string name="client_btn_catalog">See Catalog</string>
     <string name="client_btn_history">See Purchase History</string>
+    <string name="clnt_btn_cart">Go to cart</string>
+    <string name="clnt_btn_buy">Buy all</string>
 
 </resources>
