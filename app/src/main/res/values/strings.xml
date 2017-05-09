@@ -1,13 +1,13 @@
 <resources>
     <!--App Name-->
-    <string name="app_name"></string>
+    <string name="app_name">Catalogue</string>
 
     <!--Login Activity Strings-->
     <string name="login_button_text">Log in</string>
     <string name="password_text_hint">Password</string>
     <string name="user_text_hint">Email</string>
     <string name="audio">Audio</string>
-    <string name="tv">TV</string>
+    <string name="tv" translatable="false">TV</string>
     <string name="instrument">Instruments</string>
 
     <!--Administrator Main Activity Strings-->
@@ -22,7 +22,7 @@
     <string name="nextIntent_button">List of Users</string>
 
     <!--Info Employee-->
-    <string name="employee_id">id</string>
+    <string name="employee_id" translatable="false">id</string>
     <string name="employe_name">name</string>
     <string name="employe_lastname">last name</string>
     <string name="employe_user">user</string>
@@ -34,7 +34,7 @@
 
 
     <!--Info Product-->
-    <string name="id_product">id</string>
+    <string name="id_product" translatable="false">id</string>
     <string name="name_product">name product</string>
     <string name="image_product">image product</string>
     <string name="stock_product">stock</string>
@@ -50,4 +50,72 @@
     <string name="clnt_btn_buy">Buy all</string>
     <string name="title_activity_insert_client_employee">InsertClientEmployee</string>
 
+    <!--Choose Client-->
+    <string name="btn_list_clients">See List of Clients</string>
+    <string name="btn_insert_client">Insert Client</string>
+
+    <!--Client Options-->
+    <string name="id_client" translatable="false">ID</string>
+    <string name="name_client">Name</string>
+    <string name="lastname_client">Last Name</string>
+    <string name="mail_client">Mail</string>
+    <string name="address_client">Address</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_select">Select</string>
+
+    <!--Insert Client Employee-->
+    <string name="btn_add_client">Add Client</string>
+
+    <!--Insert Product-->
+    <string name="product_name">Product Name</string>
+    <string name="url_image_product">URL Image</string>
+    <string name="stockProduct">Stock</string>
+    <string name="priceProduct">Price</string>
+    <string name="add_product">Add Product</string>
+
+    <!--Item Product-->
+    <string name="product">Product</string>
+    <string name="unit_price">Unit Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="subtotal">Subtotal</string>
+
+    <!--Item Product Administrator-->
+    <string name="category_product">Category</string>
+
+    <!--Options Administrator-->
+    <string name="clients">Clients</string>
+    <string name="employees">Employees</string>
+    <string name="products">Products</string>
+    <string name="report">Report</string>
+
+    <!--Options Products-->
+    <string name="list_products">See List of Products</string>
+    <string name="insert_product">Insert Product</string>
+
+    <!--Activity Order-->
+    <string name="id_order">ID Order</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="client_name">Client Name</string>
+    <string name="date_delivery">Date of Delivery</string>
+    <string name="back">Back</string>
+
+    <!--Activity Product-->
+    <string name="id_user">ID User</string>
+    <string name="btn_return">Return</string>
+
+    <!--Item Employee-->
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="mobile">Mobile</string>
+    <string name="role">Role</string>
+    <string name="payment">Payment</string>
+
+    <string name="str_en" >English</string>
+    <string name="str_es" >Spanish</string>
+    <string name="str_pt" >Portuguese</string>
+    <string-array name="languages" >
+        <item>@string/str_en</item>
+        <item>@string/str_es</item>
+        <item>@string/str_pt</item>
+    </string-array>
 </resources>

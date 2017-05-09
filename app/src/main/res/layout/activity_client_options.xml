@@ -32,35 +32,35 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="ID" />
+                android:text="@string/id_client" />
 
             <TextView
                 android:id="@+id/ClientName_administrator"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:text="@string/name_client" />
 
             <TextView
                 android:id="@+id/ClientApellido_administrator"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Last Name" />
+                android:text="@string/lastname_client" />
 
             <TextView
                 android:id="@+id/MailClient_administrator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Mail: " />
+                android:text="@string/mail_client" />
 
             <TextView
                 android:id="@+id/AddressClient_administrator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Address: " />
+                android:text="@string/address_client" />
 
             <TextView
                 android:id="@+id/Image_url_client_administrator"
@@ -81,13 +81,13 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="delete"
+                android:text="@string/btn_delete"
                 android:id="@+id/btn_delete_client"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Client"
+                android:text="@string/btn_select"
                 android:id="@+id/btn_select_client"
                 android:gravity="center"/>
 

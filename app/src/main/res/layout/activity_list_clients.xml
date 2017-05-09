@@ -18,7 +18,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Name"
+                android:text="@string/name_client"
                 android:gravity="center"
                 android:textStyle="bold"/>
 
@@ -40,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Mail"
+                android:text="@string/mail_client"
                 android:textStyle="bold"
                 android:gravity="center"/>
 
@@ -55,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="ID Client"
+                android:text="@string/id_client"
                 android:textStyle="bold"
                 android:gravity="center"/>
 
@@ -77,7 +77,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Address"
+                android:text="@string/address_client"
                 android:textStyle="bold"
                 android:gravity="center"/>
 

@@ -18,7 +18,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Clients"
+                android:text="@string/clients"
                 android:id="@+id/btn_clients"
                 android:gravity="center"/>
 
@@ -34,7 +34,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Employees"
+                android:text="@string/employees"
                 android:id="@+id/btn_employees"
                 android:gravity="center"/>
 
@@ -50,7 +50,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Products"
+                android:text="@string/products"
                 android:id="@+id/btn_products"
                 android:gravity="center"/>
 
@@ -66,7 +66,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Report"
+                android:text="@string/report"
                 android:id="@+id/btn_report"
                 android:gravity="center"/>
 

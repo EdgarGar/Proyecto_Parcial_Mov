@@ -39,28 +39,28 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:text="@string/product_name" />
 
             <TextView
                 android:id="@+id/Stock_administrator"
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Stock" />
+                android:text="@string/stockProduct" />
 
             <TextView
                 android:id="@+id/ProductPrice_administrator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Unit Price: " />
+                android:text="@string/unit_price" />
 
             <TextView
                 android:id="@+id/Category_administrator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Category: " />
+                android:text="@string/category_product" />
 
             <TextView
                 android:id="@+id/Image_url_administrator"

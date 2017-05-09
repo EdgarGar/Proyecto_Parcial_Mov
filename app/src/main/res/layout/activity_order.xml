@@ -18,7 +18,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="ID Order"
+                android:text="@string/id_order"
                 android:gravity="center"/>
 
             <TextView
@@ -39,7 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Employee Name"
+                android:text="@string/employee_name"
                 android:gravity="center"/>
 
             <TextView
@@ -60,7 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Client Name"
+                android:text="@string/client_name"
                 android:gravity="center"/>
 
             <TextView
@@ -81,7 +81,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Date of delivery"
+                android:text="@string/date_delivery"
                 android:gravity="center"/>
 
             <TextView
@@ -102,7 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Address"
+                android:text="@string/address_client"
                 android:gravity="center"/>
 
             <TextView
@@ -123,7 +123,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Back"
+                android:text="@string/back"
                 android:id="@+id/btn_back"
                 android:gravity="center"/>
 

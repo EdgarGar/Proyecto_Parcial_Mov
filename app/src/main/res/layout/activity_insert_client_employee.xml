@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Address"
+        android:hint="@string/address_client"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="59dp" />
@@ -51,5 +51,5 @@
         android:id="@+id/add_client"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Client" />
+        android:text="@string/btn_add_client" />
 </LinearLayout>

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Id User" />
+        android:text="@string/id_user" />
 
     <EditText
         android:id="@+id/product_name"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="@string/product_name" />
 
     <EditText
         android:id="@+id/product_image"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="image" />
+        android:text="@string/image_product" />
 
     <EditText
         android:id="@+id/product_stock"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Stock"/>
+        android:text="@string/stockProduct"/>
 
     <EditText
         android:id="@+id/product_price"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Price" />
+        android:text="@string/priceProduct" />
 
     <EditText
         android:id="@+id/product_category"
@@ -51,13 +51,13 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="category" />
+        android:text="@string/category_product" />
 
     <Button
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RETURN"
+        android:text="@string/btn_return"
         tools:layout_editor_absoluteX="152dp"
         tools:layout_editor_absoluteY="434dp" />
 </LinearLayout>

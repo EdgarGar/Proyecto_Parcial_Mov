@@ -33,14 +33,14 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="Product" />
+                android:text="@string/product" />
 
             <TextView
                 android:id="@+id/ProductPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Unit Price: " />
+                android:text="@string/unit_price"  />
 
             <TextView
                 android:id="@+id/ProductQuantity"

@@ -38,7 +38,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Username"
+                android:text="@string/username"
                 android:gravity="center"/>
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Email"
+                android:text="@string/email"
                 android:gravity="center"/>
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Mobile"
+                android:text="@string/mobile"
                 android:gravity="center"/>
 
             <TextView
@@ -101,7 +101,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Role"
+                android:text="@string/role"
                 android:gravity="center"/>
 
             <TextView
@@ -122,7 +122,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:text="Payment"
+                android:text="@string/payment"
                 android:gravity="center"/>
 
             <TextView
@@ -151,7 +151,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Delete"
+                android:text="@string/btn_delete"
                 android:id="@+id/btn_delete"
                 android:gravity="center"/>
 

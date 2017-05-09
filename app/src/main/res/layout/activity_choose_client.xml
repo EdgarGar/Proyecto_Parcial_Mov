@@ -18,7 +18,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="See list of clients"
+                android:text="@string/btn_list_clients"
                 android:id="@+id/btn_list_clients"
                 android:gravity="center"/>
 
@@ -34,7 +34,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Insert client"
+                android:text="@string/btn_insert_client"
                 android:id="@+id/btn_insert_client"
                 android:gravity="center"/>
 
