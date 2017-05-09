@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    android:orientation="vertical"
     tools:context="com.max.proyecto_parcial2.item_Employee">
 
     <!--TO DO HERE
@@ -13,64 +15,79 @@
 
     -->
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
         <TextView
             android:id="@+id/name_employe"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textColor="@color/input_register"
             android:text="@string/employe_name"/>
         <TextView
             android:id="@+id/lastname_employe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/name_employe"
+            android:layout_margin="16dp"
             android:text="@string/employe_lastname"/>
 
         <TextView
             android:id="@+id/phone_employe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_below="@+id/lastname_employe"
             android:text="@string/employe_phone" />
 
         <TextView
             android:id="@+id/mail_employe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/phone_employe"
+            android:layout_margin="16dp"
             android:text="@string/employe_mail"/>
         <TextView
             android:id="@+id/password_employe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/mail_employe"
+            android:layout_margin="16dp"
             android:text="@string/employe_passsword"/>
 
         <TextView
             android:id="@+id/role_employe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/password_employe"
+            android:layout_margin="16dp"
             android:text="@string/employe_rol"/>
 
         <TextView
             android:id="@+id/username_employe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/role_employe"
+            android:layout_margin="16dp"
             android:text="@string/employe_user" />
 
         <TextView
             android:id="@+id/salary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/username_employe"
+            android:layout_margin="16dp"
             android:text="@string/employe_salary"/>
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RETURN"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="434dp" />
 
-</android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_login_bg"
+            android:text="RETURN"
+            android:textColor="@color/btn_login"
+            android:layout_margin="16dp"
+            android:layout_below="@id/salary"/>
+
+
+</RelativeLayout>
