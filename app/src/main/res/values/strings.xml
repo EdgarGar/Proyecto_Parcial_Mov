@@ -134,4 +134,5 @@
         <item>@string/str_es</item>
         <item>@string/str_pt</item>
     </string-array>
+    <string name="title_activity_maps">Map</string>
 </resources>

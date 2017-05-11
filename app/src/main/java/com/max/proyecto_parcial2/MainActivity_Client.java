@@ -15,6 +15,8 @@ public class MainActivity_Client extends AppCompatActivity {
         setContentView(R.layout.activity_main_client);
 
         Button btn_catalog = (Button) findViewById(R.id.client_btn_catalog);
+        Button btn_history = (Button) findViewById(R.id.client_btn_history);
+        Button btn_search = (Button) findViewById(R.id.client_btn_search_store);
 
         btn_catalog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,12 +26,18 @@ public class MainActivity_Client extends AppCompatActivity {
             }
         });
 
-        Button btn_history = (Button) findViewById(R.id.client_btn_history);
-
         btn_history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent().setClass(MainActivity_Client.this, ClientHistory.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent().setClass(MainActivity_Client.this, MapsActivity.class);
                 startActivity(intent);
             }
         });
