@@ -23,6 +23,15 @@
         android:id="@+id/client_btn_catalog" />
 
     <Button
+        android:text="Search near Stores"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="@color/btn_login_bg"
+        android:textColor="@color/btn_login"
+        android:id="@+id/client_btn_search_store" />
+
+    <Button
         android:text="@string/client_btn_history"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
