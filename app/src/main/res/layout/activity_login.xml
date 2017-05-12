@@ -16,7 +16,8 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp" >
+        android:paddingRight="20dp"
+        android:gravity="center_horizontal">
 
         <EditText
             android:id="@+id/user_text"
@@ -53,6 +54,15 @@
             android:background="@color/btn_login_bg"
             android:textColor="@color/btn_login"
             android:text="@string/login_button_text" />
+
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/btn_login_bg"
+            android:textColor="@color/btn_login"
+            android:text="@string/cl_reg_button_text" />
 
     </LinearLayout>
 </LinearLayout>

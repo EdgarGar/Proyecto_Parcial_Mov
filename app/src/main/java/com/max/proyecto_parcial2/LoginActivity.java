@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
 
         Button btn_access = (Button) findViewById(R.id.login_button);
+        Button btn_reg = (Button) findViewById(R.id.register_button);
 
         btn_access.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +53,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btn_reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createUser = new Intent().setClass(LoginActivity.this, InsertClientEmployee.class);
+                startActivity(createUser);
+            }
+        });
     }
 
     @Override

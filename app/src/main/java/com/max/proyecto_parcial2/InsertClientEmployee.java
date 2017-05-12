@@ -33,8 +33,6 @@ public class InsertClientEmployee extends AppCompatActivity {
 
     Button btn_add_client;
 
-    String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/cliente.c.php";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +72,7 @@ public class InsertClientEmployee extends AppCompatActivity {
             return;
         }
 
+        String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/cliente.c.php";
         url += "?nombre=" + name_client.getText().toString() + "&apellido=" + lastname_client.getText().toString() + "&mail=" + email_client.getText().toString() + "&direccion=" + address_client.getText().toString();
 
 

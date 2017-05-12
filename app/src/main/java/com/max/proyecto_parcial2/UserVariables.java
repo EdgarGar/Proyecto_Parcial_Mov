@@ -46,5 +46,30 @@ public class UserVariables {
             product = p;
             quantity = q;
         }
+
+        public void increment () {
+            if (quantity < Integer.parseInt(product.getStock())) {
+                quantity++;
+            }
+        }
+
+        public void decrement () {
+            if (quantity > 0) {
+                quantity--;
+            }
+        }
+    }
+
+    public void checkEmpty() {
+        ArrayList<Integer> delPos = new ArrayList<>();
+
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).quantity == 0) {
+                delPos.add(i);
+            }
+        }
+        for (Integer item: delPos) {
+            cart.remove((int) item);
+        }
     }
 }

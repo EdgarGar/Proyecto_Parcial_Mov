@@ -1,5 +1,7 @@
 package com.max.proyecto_parcial2;
 
+// Hecho por Edgar Adrián y Arthur Alves
+
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -38,6 +40,8 @@ public class Client_Catalog extends AppCompatActivity {
         lv = (RecyclerView) findViewById(R.id.client_catalog_recyclerview);
         lv.setLayoutManager(new LinearLayoutManager(this));
         requestQueue = newRequestQueue(getApplicationContext());
+
+        UserVariables.getInstance().checkEmpty();
 
         String url = "http://ubiquitous.csf.itesm.mx/~pddm-1021817/content/parcial2/Proyecto_parcial_2/Servicios/producto.r.php";
 

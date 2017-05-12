@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -41,11 +43,40 @@ public class Cardview_cartitem extends RecyclerView.Adapter<Cardview_cartitem.Vi
     // Éste método es muy similar al método getView de un adaptador de ListView.
     // Aquí es donde tenemos que establecer los valores de los campos nombre y letra del CardView.
     @Override
-    public void onBindViewHolder(com.max.proyecto_parcial2.Cardview_cartitem.ViewHolder holder, int position) {
+    public void onBindViewHolder(final com.max.proyecto_parcial2.Cardview_cartitem.ViewHolder holder, final int position) {
         String nombre = lista.get(position).product.getName();
-        int quant = lista.get(position).quantity;
-        holder.letra.setText(String.valueOf(quant));
+        holder.letra.setText(String.valueOf(lista.get(position).quantity));
         holder.nombre.setText(nombre.substring(0,1)+nombre.substring(1));
+        holder.quantity.setText(String.valueOf(lista.get(position).quantity));
+        holder.update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.linear.setVisibility(View.VISIBLE);
+                holder.update.setVisibility(View.INVISIBLE);
+            }
+        });
+        holder.check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.linear.setVisibility(View.INVISIBLE);
+                holder.update.setVisibility(View.VISIBLE);
+                holder.letra.setText(String.valueOf(lista.get(position).quantity));
+            }
+        });
+        holder.plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lista.get(position).increment();
+                holder.quantity.setText(String.valueOf(lista.get(position).quantity));
+            }
+        });
+        holder.minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lista.get(position).decrement();
+                holder.quantity.setText(String.valueOf(lista.get(position).quantity));
+            }
+        });
     }
 
     // Indica el número de elementos del set de datos.
@@ -61,16 +92,23 @@ public class Cardview_cartitem extends RecyclerView.Adapter<Cardview_cartitem.Vi
     // constructor del ViewHolder.
     public class ViewHolder extends RecyclerView.ViewHolder{
         // definimos los componentes de nuestra vista
-        TextView letra, nombre;
+        LinearLayout linear;
+        TextView letra, nombre, quantity;
         CardView carta;
+        Button minus, plus, update, check;
 
         public ViewHolder(final View verElemento) {
             super(verElemento);
             carta = (CardView)  verElemento.findViewById(R.id.Card);
             letra = (TextView)  verElemento.findViewById(R.id.Letter);
+            quantity = (TextView)  verElemento.findViewById(R.id.Quantity);
+            linear = (LinearLayout) verElemento.findViewById(R.id.ChangeQuantity);
             nombre = (TextView) verElemento.findViewById(R.id.Name);
+            minus = (Button) verElemento.findViewById(R.id.Minus);
+            plus = (Button) verElemento.findViewById(R.id.Plus);
+            update = (Button) verElemento.findViewById(R.id.Update);
+            check = (Button) verElemento.findViewById(R.id.Check);
         }
 
     }
-
 }

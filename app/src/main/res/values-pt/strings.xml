@@ -75,4 +75,10 @@
     <string name="address_client">Endereço</string>
     <string name="add_product">Adicionar produto</string>
     <string name="add_employee_button">Adicionar Funcionário</string>
+    <string name="c_his_d">Dia</string>
+    <string name="c_his_m">Mês</string>
+    <string name="c_his_title">Filtrar por ano, mês e día</string>
+    <string name="c_his_y">Ano</string>
+    <string name="btn_hist_employee">Ver gráficas de comisão</string>
+    <string name="btn_c_his_update">Atualizar</string>
 </resources>

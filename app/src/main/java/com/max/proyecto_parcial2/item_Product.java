@@ -168,10 +168,12 @@ public class item_Product extends AppCompatActivity {
     }
 
     public void increment(){
-        counter++;
-        String[] separated = t_price.getText().toString().split(":");
-        t_subtotal.setText("Subtotal: " + precio * counter);
-        t_quantity.setText("Quantity: " + (String.valueOf(counter)));
+        if (counter < Integer.parseInt(UserVariables.getInstance().tempProduct.getStock())) {
+            counter++;
+            String[] separated = t_price.getText().toString().split(":");
+            t_subtotal.setText("Subtotal: " + precio * counter);
+            t_quantity.setText("Quantity: " + (String.valueOf(counter)));
+        }
     }
 
     public void decrement(){

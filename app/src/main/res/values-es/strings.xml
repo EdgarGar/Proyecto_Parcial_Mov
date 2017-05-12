@@ -76,4 +76,10 @@
     <string name="user_text_hint">Email</string>
     <string name="username">Usuario</string>
     <string name="username_employee_hint_textbox">Usuario</string>
+    <string name="btn_c_his_update">Actualizar</string>
+    <string name="c_his_d">Día</string>
+    <string name="c_his_m">Mes</string>
+    <string name="c_his_title">Filtrar por año, mes y día</string>
+    <string name="c_his_y">Año</string>
+    <string name="btn_hist_employee">Ver gráfica de comisiones</string>
 </resources>

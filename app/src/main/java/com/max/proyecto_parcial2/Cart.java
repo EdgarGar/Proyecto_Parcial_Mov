@@ -32,6 +32,8 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        UserVariables.getInstance().checkEmpty();
+
         queue = Volley.newRequestQueue(getApplicationContext());
 
         lv = (RecyclerView) findViewById(R.id.cart_recycler_view);
@@ -47,7 +49,11 @@ public class Cart extends AppCompatActivity {
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buyCart();
+                UserVariables.getInstance().checkEmpty();
+                if(!UserVariables.getInstance().cart.isEmpty())
+                    buyCart();
+                else
+                    Toast.makeText(getApplicationContext(), "No items in cart", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -115,6 +121,7 @@ public class Cart extends AppCompatActivity {
                             Log.d("Good Response 2", response.toString() + " " + response.getString("Code"));
                         } else {
                             Log.d("Bad Response 2", response.toString() + " " + response.getString("Code"));
+                            Toast.makeText(getApplicationContext(), "One or all items could not be bought.", Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

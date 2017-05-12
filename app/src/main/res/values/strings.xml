@@ -9,6 +9,7 @@
     <string name="audio">Audio</string>
     <string name="tv" translatable="false">TV</string>
     <string name="instrument">Instruments</string>
+    <string name="cl_reg_button_text">No account? Register here.</string>
 
     <!--Administrator Main Activity Strings-->
     <string name="name_employee_hint_textbox">Name</string>

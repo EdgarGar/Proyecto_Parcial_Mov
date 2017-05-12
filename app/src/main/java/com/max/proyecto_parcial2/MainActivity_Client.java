@@ -14,6 +14,8 @@ public class MainActivity_Client extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_client);
 
+        UserVariables.getInstance().cart.clear();
+
         Button btn_catalog = (Button) findViewById(R.id.client_btn_catalog);
 
         btn_catalog.setOnClickListener(new View.OnClickListener() {
